@@ -105,8 +105,8 @@ def getPartAmount(corpus, keyLength):
     return int(math.ceil(float(len(sampleLine))/float(keyLength)))
 
 def main():
-    #script, fileName = sys.argv
-    fileContents = open("testRhyme2.txt").read()
+    script, fileName = sys.argv
+    fileContents = open(fileName).read()
 
     keyLength = 2
 
