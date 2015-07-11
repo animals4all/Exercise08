@@ -87,11 +87,15 @@ def splitIntoWordLists(corpus):
     """Remove all newline characters, split the text into
     lists of words, and remove the blank lines."""
     fileLines = corpus.split("\n")
+    emptyLines = []
     for line in fileLines:
         lineIndex = fileLines.index(line)
         fileLines[lineIndex] = line.split(" ")
-        if fileLines[lineIndex] in ([], [""]):
-            fileLines.remove(fileLines[lineIndex])
+        if fileLines[lineIndex] == [""]:
+            emptyLines.append(lineIndex)
+
+    for lineIndex in reversed(emptyLines):
+        del fileLines[lineIndex]
 
     return fileLines
 
